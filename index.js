@@ -1,6 +1,8 @@
 console.log(__dirname)
+let sum = 0
 setInterval(() => {
-    console.log('hello')
+    console.log('Count: ', sum)
+    sum++;
 }, 1000)
 
 const os = require('os')
