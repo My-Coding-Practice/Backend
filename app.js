@@ -11,5 +11,5 @@ console.log('__dirname : ', __dirname)
 console.log('__filename : ', __filename)
 // require function
 console.log('require : ', require)
-console.log('module : ', module)
-console.log('process : ', process)
+console.log('module : ', module)  // info about current module (file)
+console.log('process : ', process) // info about env where the program is being executed
