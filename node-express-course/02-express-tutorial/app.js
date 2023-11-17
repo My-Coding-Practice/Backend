@@ -1,23 +1,19 @@
-const http = require('http');
-const { readFileSync } = require('fs');
+const express = require('express');
+const path = require('path');
+const app = express();
 
-const homePage = readFileSync('./index.html');
+// setup static and middleware
+app.use(express.static('./public'))
 
-const server = http.createServer((req, res) => {
-    const url = req.url;
-    if (url === '/') {
-        res.writeHead(200, { 'content-type': 'text/html' });
-        res.write(homePage);
-        res.end();
-    } else if (url === '/contact') {
-        res.writeHead(200, { 'content-type': 'text/html' });
-        res.write(`<h1>Contact us page</h1>`);
-        res.end();
-    } else {
-        res.writeHead(404, { 'content-type': 'text/html' });
-        res.write(`<h1>Not found</h1>`);
-        res.end();
-    }
+app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './navbar-app/index.html'))
 })
 
-server.listen(5000);
+app.all('*', (req, res) => {
+    res.status(404).send('Oops, we couldn\'t find this page')
+})
+
+
+app.listen(5000, () => {
+    console.log('Listening on post 5000...');
+})

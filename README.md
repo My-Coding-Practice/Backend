@@ -3,4 +3,4 @@
 # I will be reviewing Fullstack Academy Backend lectures and working on what I review in this repo.
 
 # Currently going through Node.js and Express.js freecodecamp video
-# On minute: 4:03:32
+# On minute: 5:11:01
